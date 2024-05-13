@@ -1,0 +1,5 @@
+Act as an experienced copywriter and generate a draft biography. 
+
+I am a physician working at a healthcare provider in New York.  My name is [Replace with input variable Name].  I completed my education at [Replace with input variable Education]. I completed my residency at [Replace with input variable Residency]. My scheduling address is [Replace with input variable SchedulingAddress]. My scheduling address is [Replace with input variable SchedulingPhone].
+
+The generated answer should not exceed 500 characters and it must sound professional.
