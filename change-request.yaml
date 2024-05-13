@@ -1,0 +1,66 @@
+kind: AdaptiveDialog
+beginDialog:
+  kind: OnRecognizedIntent
+  id: main
+  intent:
+    displayName: Change Request
+    triggerQueries:
+      - change request
+      - submit change request
+      - request a change
+      - make a change
+      - modify request
+      - modifu profile
+      - update request
+      - update profile
+      - change profile
+      - alteration request
+
+  actions:
+    - kind: Question
+      id: Question_xTBdbb
+      variable: Topic.ProfileChanges
+      prompt: What changes would you like to request for your profile?
+      entity:
+        kind: EmbeddedEntity
+        definition:
+          kind: ClosedListEntity
+          optionSetName: ProfileChangesOptions
+          items:
+            - id: biography
+              displayName: Biography
+
+            - id: specialties
+              displayName: Specialties
+
+            - id: academic background
+              displayName: Academic Background
+
+            - id: locations
+              displayName: Locations
+
+            - id: areas of focus
+              displayName: Areas of Focus
+
+            - id: titles
+              displayName: Titles
+
+    - kind: ConditionGroup
+      id: ConditionGroup_rgKCDi
+      conditions:
+        - id: ConditionItem_fLJgdv
+          condition: =Topic.ProfileChanges = ProfileChangesOptions.biography
+          actions:
+            - kind: BeginDialog
+              id: 7hDuHb
+              dialog: cr5bc_physicianChangeRequestSystem.topic.ChangeBiography
+
+      elseActions:
+        - kind: SendActivity
+          id: sendActivity_0opP0e
+          activity: |-
+            The ability to request changes to your profile information is currently under development. 
+            
+            In the interim, please reach out to the administrator for any modifications you need.
+            
+            We appreciate your patience and understanding as we work to enhance your experience.
